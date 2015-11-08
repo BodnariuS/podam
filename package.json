@@ -3,3 +3,4 @@
     "url": "git://github.mycompany.com/myco/mypackage.git"
   }
 }
+npm init [-f|--force|-y|--yes]
