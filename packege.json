@@ -1,0 +1,11 @@
+npm install lodash
+Test: Run ls node_modules
+var lodash = require('lodash');
+ 
+var output = lodash.without([1, 2, 3], 1);
+console.log(output);
+{
+    "name": "demo-app",
+    "version": "1.0.0"
+}
+npm install lodash --save
