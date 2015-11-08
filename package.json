@@ -1,6 +1,4 @@
-{
-  "repository": {
-    "url": "git://github.mycompany.com/myco/mypackage.git"
-  }
-}
 npm init [-f|--force|-y|--yes]
+{ "url" : "https://github.com/owner/project/issues"
+, "email" : "project@hostname.com"
+}
