@@ -2,3 +2,10 @@ npm init [package.json]
 { "url" : "https://github.com/owner/project/issues"
 , "email" : "project@hostname.com"
 }
+{ "license" : "BSD-3-Clause" }
+{ "license" : "(ISC OR GPL-3.0)" }
+{ "license" : "SEE LICENSE IN <filename>" }
+{ "license": "ISC" }
+
+{ "license": "(MIT OR Apache-2.0)" }
+~/.npm-init.js
