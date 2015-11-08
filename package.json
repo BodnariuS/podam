@@ -1,3 +1,4 @@
+
 module.exports = init
 module.exports.yes = yes
 
@@ -145,3 +146,6 @@ function unParsePerson (person) {
   var url = u ? (" ("+u+")") : ""
   var e = person.email || person.mail
   var email = e ? (" <"+e+">") : ""
+  return name+email+url
+}
+
