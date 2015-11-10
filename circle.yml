@@ -2,3 +2,9 @@ test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
     - bundle exec cucumber --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber
+test:
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    curl https://circleci.com/api/v1/project/:username/:project/:build_num/tests?circle-token=:token
+    
