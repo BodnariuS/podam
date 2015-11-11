@@ -4,10 +4,23 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-dependencies:
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+checkout:
+  post:
+    - cp ./ci-server/config.yml ./app-server/config.yml
+    dependencies:
+  post:
+    - python ./install-packages
+    database:
   override:
-    - exit 0
-
-test:
+    - mysql -u ubuntu circle_test < my-database-setup.sql
+    test:
   override:
-    - exit 0
+    - php ./test-suite/run.php --unit-tests
+    test:
+  override:
+    - php ./app/run-server.php --daemon
+    - php ./test-suite/run.php --unit-tests
